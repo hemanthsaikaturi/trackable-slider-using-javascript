@@ -7,6 +7,8 @@ let prev = document.querySelector(".prev");
 let dots = document.querySelectorAll(".dot");
 
 var counter = 0;
+let startX, moveX;
+let isDragging = false;
 
 // Code for next button
 next.addEventListener("click", slideNext);
@@ -86,4 +88,41 @@ document.addEventListener("keydown", function (e) {
   } else if (e.key === "ArrowLeft") {
     slidePrev();
   }
+});
+
+// Drag functionality with realistic movement
+container.addEventListener("mousedown", function (e) {
+  isDragging = true;
+  startX = e.clientX;
+  slideImages[counter].style.transition = "none"; // Disable transition during drag
+});
+
+container.addEventListener("mousemove", function (e) {
+  if (!isDragging) return;
+  moveX = e.clientX;
+  let translateX = moveX - startX;
+  slideImages[counter].style.transform = `translateX(${translateX}px)`; // Move the image with the cursor
+});
+
+container.addEventListener("mouseup", function () {
+  if (!isDragging) return;
+  isDragging = false;
+  slideImages[counter].style.transition = "transform 0.3s ease"; // Re-enable transition
+  let diff = startX - moveX;
+
+  if (diff > 30) {
+    slideNext(); // Slide next if drag distance is more than 30px to the left
+  } else if (diff < -30) {
+    slidePrev(); // Slide previous if drag distance is more than 30px to the right
+  } else {
+    slideImages[counter].style.transform = "translateX(0)"; // Snap back if not enough drag
+  }
+});
+
+container.addEventListener("mouseleave", function () {
+  if (isDragging) {
+    slideImages[counter].style.transform = "translateX(0)"; // Snap back if drag is canceled
+    slideImages[counter].style.transition = "transform 0.3s ease"; // Re-enable transition
+  }
+  isDragging = false; // Stop dragging if the mouse leaves the container
 });
