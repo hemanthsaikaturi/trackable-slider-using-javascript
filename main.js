@@ -124,5 +124,5 @@ container.addEventListener("mouseleave", function () {
     slideImages[counter].style.transform = "translateX(0)"; // Snap back if drag is canceled
     slideImages[counter].style.transition = "transform 0.3s ease"; // Re-enable transition
   }
-  isDragging = false; // Stop dragging if the mouse leaves the container
+  isDragging = false; // Stop dragging if the mouse leaves the container...
 });
