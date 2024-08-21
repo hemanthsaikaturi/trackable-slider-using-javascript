@@ -1,5 +1,5 @@
 // Access the Images...
-let slideImages = document.querySelectorAll("img");
+let slideImages = document.querySelectorAll(".slides img");
 // Access the next and prev buttons
 let next = document.querySelector(".next");
 let prev = document.querySelector(".prev");
@@ -34,7 +34,7 @@ function slidePrev() {
   indicators();
 }
 
-// Auto slideing
+// Auto sliding
 function autoSliding() {
   deletInterval = setInterval(timer, 3000);
   function timer() {
@@ -64,7 +64,7 @@ function indicators() {
 // Add click event to the indicator
 function switchImage(currentImage) {
   currentImage.classList.add("active");
-  var imageId = currentImage.getAttribute("attr");
+  var imageId = parseInt(currentImage.getAttribute("attr"));
   if (imageId > counter) {
     slideImages[counter].style.animation = "next1 0.5s ease-in forwards";
     counter = imageId;
@@ -78,3 +78,12 @@ function switchImage(currentImage) {
   }
   indicators();
 }
+
+// Keyboard navigation
+document.addEventListener("keydown", function (e) {
+  if (e.key === "ArrowRight") {
+    slideNext();
+  } else if (e.key === "ArrowLeft") {
+    slidePrev();
+  }
+});
