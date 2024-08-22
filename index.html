@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Image Slideshow</title>
-	<link href="styles.css" rel="stylesheet">
-</head>
-<body>
-	<div class="info">
-		<h1>Trackable Slideshow  </h1>
-	<h3>functionality
-		<ol><pre>Can use arrows to move the images,</pre></ol>
-		<ol><pre>or use the mouse and clicking the arrows can change the images...</pre></ol>
-		<ol><pre>you can use the mouse curser to change images by double tap on the side of the portion were you want to change.</pre></ol>
-	</h3>
-	</div>
+  <head>
+    <title>Image Slideshow</title>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="info">
+      <h1>Trackable Slideshow</h1>
+      <h3>
+        functionality
+        <ol>
+          <pre>
+You can use the arrow keys or the mouse to change images. Clicking the arrows
+ will move the images, or you can double-tap on the side where you want to 
+ change the image using the mouse cursor</pre
+          >
+        </ol>
+      </h3>
+    </div>
 
-<div class="slide-container">
-	
-	<div class="slides">
-		<img src="assests/images/AVK2K24 1.jpg" class="active">
-		<img src="assests/images/AVK2K24 2.jpg">
-		<img src="assests/images/AVK2K24 3.jpg">
-		<img src="assests/images/AVK2K24 4.jpg">
-		<img src="assests/images/AVK2K24 5.jpg">
-	</div>
+    <div class="slide-container">
+      <div class="slides">
+        <img src="assests/images/AVK2K24 1.jpg" class="active" />
+        <img src="assests/images/AVK2K24 2.jpg" />
+        <img src="assests/images/AVK2K24 3.jpg" />
+        <img src="assests/images/AVK2K24 4.jpg" />
+        <img src="assests/images/AVK2K24 5.jpg" />
+      </div>
 
-	<div class="buttons">
-		<span class="next">&#10095;</span>
-		<span class="prev">&#10094;</span>
-	</div>
+      <div class="buttons">
+        <span class="next">&#10095;</span>
+        <span class="prev">&#10094;</span>
+      </div>
 
-	<div class="dotsContainer">
-		<div class="dot active" attr='0' onclick="switchImage(this)"></div>
-		<div class="dot" attr='1' onclick="switchImage(this)"></div>
-		<div class="dot" attr='2' onclick="switchImage(this)"></div>
-		<div class="dot" attr='3' onclick="switchImage(this)"></div>
-		<div class="dot" attr='4' onclick="switchImage(this)"></div>
-	</div>
-
-</div>
-<script src="main.js"></script>
-
-</body>
+      <div class="dotsContainer">
+        <div class="dot active" attr="0" onclick="switchImage(this)"></div>
+        <div class="dot" attr="1" onclick="switchImage(this)"></div>
+        <div class="dot" attr="2" onclick="switchImage(this)"></div>
+        <div class="dot" attr="3" onclick="switchImage(this)"></div>
+        <div class="dot" attr="4" onclick="switchImage(this)"></div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
